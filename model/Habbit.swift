@@ -12,6 +12,7 @@ struct Habbit: Hashable, Codable, Identifiable, Equatable{
     var id = UUID()
     var title : String
     var description : String
+    var completionCount : Int
     
 }
 
@@ -34,4 +35,11 @@ class Habbits{
         }
         activity = []
     }
+//    
+//    func incrementCompletion(for activity: Habbit) {
+//           if let index = activityIndex(for: activity) {
+//               activity[index].completionCount += 1
+//           }
+//       }
+    
 }

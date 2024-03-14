@@ -27,7 +27,7 @@ struct AddActivityView: View {
             .toolbar{
                 Button("Save"){
                     //
-                    let save = Habbit(title: activityName, description: description)
+                    let save = Habbit(title: activityName, description: description, completionCount: 0)
                     habbits.activity.append(save)
                     dismiss()
                 }

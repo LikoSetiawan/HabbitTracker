@@ -18,15 +18,18 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             List{
-                
                 ForEach(habbits.activity){ activity in
-                    NavigationLink(value: activity){
+                    NavigationLink(destination: DetailView(activity: activity)) {
                         Text(activity.title)
                     }
+//                    .navigationDestination(for: Habbit.self){ activity in
+//                        DetailView(activity: activity)
+//                    }
                     
                 }
                 .onDelete(perform: removeItems )
             }
+            
             .navigationTitle($title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
@@ -37,6 +40,9 @@ struct MainView: View {
             }
             .sheet(isPresented: $showModal ) {
                 AddActivityView(habbits: habbits)
+            }
+            .navigationDestination(for: Habbit.self){ activity in
+                DetailView(activity: activity)
             }
         }
     }
